@@ -8,14 +8,17 @@ import { Person } from './models/Person';
 })
 export class AppComponent {
   name = null;
-  people = new Array();
+  people = [];
+  public total = this.people.length;
 
   addPerson(){
     this.people.push(new Person(this.name));
     this.name = null;
+    this.total = this.people.length;
   }
 
   deletePerson(personName){
     this.people.splice(this.people.indexOf(personName));
+    this.total = this.people.length;
   }
 }
