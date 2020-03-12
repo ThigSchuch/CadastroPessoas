@@ -9,10 +9,15 @@
 
 <h4>Pessoas cadastradas</h4>
 
-<ul>
+<table>
 
-  <li *ngFor="let person of people">
-    {{ person.name }}
-  </li>
+  <tr *ngFor="let person of people">
+    <td>
+      {{ person.name }}
+    </td>
+    <td (click) = "deletePerson(person.name)">
+      <button>Deletar</button>
+    </td>
+  </tr>
 
-</ul>
+</table>

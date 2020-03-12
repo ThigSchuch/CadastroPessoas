@@ -14,4 +14,8 @@ export class AppComponent {
     this.people.push(new Person(this.name));
     this.name = null;
   }
+
+  deletePerson(personName){
+    this.people.splice(this.people.indexOf(personName));
+  }
 }
