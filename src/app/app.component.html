@@ -1,13 +1,37 @@
 <form ngForm name="form">
 
-  <input type="text" name="input" [(ngModel)] = "name">
-  <button (click) = "addPerson()">
-    Insert
-  </button>
+  <table>
+    <tr>
+      <td>
+        Name:
+      </td>
+      <td>
+        <input type="text" name="inputName" [(ngModel)] = "name">
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Age: 
+      </td>
+      <td>
+        <input type="text" name="inputAge" [(ngModel)] = "age">
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <button (click) = "addPerson()">
+          Insert
+        </button>
+      </td>
+    </tr>
+
+  </table>
 
 </form>
 
-<h4>Pessoas cadastradas</h4>
+<h4>Pessoas cadastradas: {{ total }}</h4>
 
 <table>
 
@@ -15,11 +39,17 @@
     <td>
       {{ person.name }}
     </td>
-    <td (click) = "deletePerson(person.name)">
+    <td>
+      {{ person.age }}
+    </td>
+    <td (click) = "deletePerson(person)">
       <button>Deletar</button>
     </td>
   </tr>
 
 </table>
 
-<h5>Pessoas cadastradas: {{ total }}</h5>
+<ng-container *ngIf="(younger.age != '') && (total != 0)">
+  <h5>Mais novo é {{ younger.name }} {{ younger.age }}</h5>
+  <h5>Mais velho é {{ older.name }} {{ older.age }}</h5>
+</ng-container>

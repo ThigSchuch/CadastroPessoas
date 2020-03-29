@@ -1,7 +1,9 @@
 export class Person{
     name: string;
+    age;
 
-    constructor(name){
+    constructor(name, age){
         this.name = name;
+        this.age = age;
     }
 }
